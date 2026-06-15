@@ -12,7 +12,26 @@
 ### 计划中
 - 宅电品牌视觉规范建立（参考 `project_skills/zhaidian/vidiator/visual-design/SKILL.md` 中临时规范）
 - `share/observing/` skill 完善
-- CONTRIBUTING.md（贡献者指南）
+- wechat-tools：style-analyzer 实测和样本数据准备
+
+---
+
+## [2.1.0] - 2026-06-15
+
+### Added
+- **新 share 子目录 `wechat-tools/`** — 微信本地工具集
+  - `SKILL.md` — 父级入口
+  - `chat-export/SKILL.md` — 封装 WeChatDaily 项目的 wechat.py CLI
+  - `style-analyzer/SKILL.md` — 对话风格画像分析（5 维度 + persona prompt）
+- **外部项目集成**：WeChatDaily @ `C:\Users\11390\tools\WeChatDaily\`
+  - 已克隆 + 初始化子模块 (wechat-decrypt)
+  - 已创建 .env 模板
+  - wx_key 工具需用户本地下载（GitHub 国内访问受限）
+
+### Notes
+- wechat-chat-export 调 `python wechat.py export --date X --groups Y --limit 99999`
+- wechat-style-analyzer 输出 5 维 persona JSON，存到 `export/personas/`
+- 隐私：聊天记录 100% 本地处理，不上传
 
 ---
 

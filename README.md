@@ -35,6 +35,7 @@ nanqiao_skills/
 │   ├── image-gen/                        ← 豆包/即梦/MiniMax 出图
 │   ├── content-processing/               ← 润色/翻译/格式化
 │   ├── web-scraping/                     ← 抓取/搜索
+│   ├── wechat-tools/                     ← 微信本地工具（导出+风格分析）
 │   ├── social-publish/                   ← 公众号/X/微博
 │   ├── media-audio/                      ← YouTube/GIF
 │   ├── design-visual/                    ← 图表/信息图/PPT

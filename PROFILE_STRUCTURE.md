@@ -46,6 +46,7 @@ hermes -z "帮我看看这个选题值不值得做" chat --profile researcher
 | Skill | 路径 | 来自 | 用途 |
 |-------|------|------|------|
 | browser-automation | `share/browser-automation/` | share | Chrome CDP + MCP + 豆包 |
+| wechat-tools | `share/wechat-tools/` | share | 微信本地工具（导出+风格分析） |
 | image-gen | `share/image-gen/` | share | AI 图片生成（豆包/即梦/MiniMax） |
 | content-processing | `share/content-processing/` | share | 润色/翻译/格式化 |
 | zhaimi-script-writing | `project_skills/zhaimi/vidiator/script-writing/` | zhaimi | 脚本写作 |
