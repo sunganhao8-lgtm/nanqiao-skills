@@ -4,14 +4,23 @@
 > 项目根：`C:\Users\11390\Desktop\宅咪小红书笔记\`
 > 冷启动阶段：0→1
 
-## 技能目录
+## 技能目录（单职责拆分）
 
-| Profile | 路径 | 包含技能 |
-|---------|------|----------|
-| research | `research/` | 选题评分、竞品分析、爆款拆解、评论洞察 |
-| vidiator | `vidiator/` | 脚本写作、视觉内容设计 |
-| creator | `creator/` | 标题封面检查 |
-| default | `orchestrator/` | 内容创作调度器（一刀入口） |
+```
+zhaimi/
+├── research/                                ← researcher profile
+│   ├── topic-scoring/         只做：选题评分
+│   ├── competitor-analysis/   只做：竞品分析
+│   ├── viral-deconstruct/     只做：爆款拆解
+│   └── comment-insight/       只做：评论洞察
+├── vidiator/                                ← vidiator profile
+│   ├── script-writing/        只做：脚本写作
+│   └── visual-design/         只做：视觉设计
+├── creator/                                 ← creator profile
+│   └── title-cover-check/     只做：标题封面检查
+└── orchestrator/                            ← default profile
+    └── content-orchestrator/  只做：调度编排
+```
 
 ## 工作流总览
 
@@ -44,8 +53,8 @@
 
 | 项目技能 | 依赖的 share 技能 |
 |----------|-------------------|
-| research/* | `../../share/web-scraping/` + `../../share/research/` |
-| vidiator/* | `../../share/browser-automation/` + `../../share/image-gen/` |
+| research/* | `../../share/web-scraping/` + `../../share/research/` + `../../share/content-processing/` |
+| vidiator/* | `../../share/browser-automation/` + `../../share/image-gen/` + `../../share/content-processing/` |
 | creator/* | `../../share/content-processing/` |
 | orchestrator/* | 以上全部 |
 
@@ -59,3 +68,15 @@
 6. [ ] 出图必须读品牌视觉规范
 7. [ ] 脚本必须走 humanizer-zh 润色
 8. [ ] prompt .md 与图片同目录
+9. [ ] 私域钩子 = 评论扣【区域+宠物】
+
+## 与宅电项目的对比
+
+| 维度 | 宅咪 ZHAIMI | 宅电 ZHAIDIAN |
+|------|-------------|---------------|
+| 服务 | 上门洗护 | 上门电竞房搭建 |
+| 主色 | 暖橙治愈 | 暗色科技 |
+| 痛点 | 怕猫应激/嫌出门麻烦 | 没空间/不会选设备/怕踩坑 |
+| 私域钩子 | 评论扣【区域+宠物】 | 评论扣【城市+房型】 |
+| 决策周期 | 短（单次服务） | 长（万元级改造） |
+| 内容节奏 | 周更 3-4 篇 | 月更 1-2 篇 |
