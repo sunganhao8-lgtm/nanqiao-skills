@@ -1,0 +1,13 @@
+# System files
+*.bak
+*.bak.*
+.DS_Store
+Thumbs.db
+
+# Hermes internal
+.curator_state
+.bundled_manifest
+.hub/
+.archive/
+.usage.json
+.usage.json.lock
