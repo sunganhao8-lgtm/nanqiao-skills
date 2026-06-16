@@ -37,14 +37,31 @@ references:
 | `scripts/render_manual_report.py` | HTML/PNG 日报渲染 |
 | `.env` | 存放 `WX_RAW_KEY`（**绝不提交 Git**） |
 
-## 重要约束
+## wx_key 工具下载（国内环境修复）
 
-- **100% 本地**：所有解密、导出、分析都在本机完成，**不调用任何远程 API**
-- **密钥安全**：`WX_RAW_KEY` 只放 `.env`，从不被读到 LLM 上下文
-- **风险声明**：
-  - 微信重启后 key 失效，需重新提取
-  - 用第三方 hook 工具（wx_key）有理论封号风险，但只读取内存不会发消息
-  - 不上传真人对话数据
+wx_key 二进制不上游 git，需要手动下载。**在国内网络环境**，GitHub Release 直连经常 timeout/失败。
+
+**修复方法**（任选其一）：
+
+1. **浏览器开代理下载**：用你能访问 GitHub 的浏览器打开
+   `https://github.com/ycccccccy/wx_key/releases/tag/v2.1.8`
+   → 下载 `wx_key-windows-v2.1.8.zip` → 解压到 `C:\Users\11390\tools\WeChatDaily\tools\wx_key\`
+
+2. **gh CLI 配 token**：`gh release download v2.1.8 -R ycccccccy/wx_key --pattern "wx_key-windows-v2.1.8.zip" -D C:\Users\11390\tools\WeChatDaily\tools\`
+
+3. **GitHub 镜像**：`https://gh-proxy.com/https://github.com/ycccccccy/wx_key/releases/download/v2.1.8/wx_key-windows-v2.1.8.zip`
+
+4. **找替代工具**：`wechat-decrypt` 子模块自带 `find_all_keys_windows.py` 也可以从内存找 key（功能较弱，优先 wx_key）
+
+**下载后验证**：
+```powershell
+ls C:\Users\11390\tools\WeChatDaily\tools\wx_key\wx_key.exe
+```
+
+**注意**：
+- 微信必须**保持登录**才能提取 key
+- 微信重启后 key 失效，需重新提取
+- wx_key 仅读取内存，不发消息，封号风险理论极低（但非零）
 
 ## 数据流
 

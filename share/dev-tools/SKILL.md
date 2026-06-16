@@ -34,6 +34,7 @@ version: 1.0.0
 | Windows Git | "Git 初始化 / 快照" | windows-git |
 | 代码简化 | "简化 / 清理代码" | simplify-code |
 | TDD | "测试驱动" | test-driven-development |
+| Windows 桌面脚本 | "VBScript 启动器 / Inno Setup 安装包" | `references/windows-vbscript-and-innosetup.md`(编码 BOM/重复 Dim/UAC/cscript 调试坑) |
 
 ### Skill 编写规范（hermes-agent-skill-authoring）
 
@@ -43,6 +44,14 @@ version: 1.0.0
 3. 工作流步骤（分步可执行）
 4. 输入/输出格式
 5. 红线清单（不可违反的约束）
+
+### 单职责原则（硬约束，用户已多次强调）
+
+**一个 SKILL.md 只做一件事**。判断标准：能不能用一句话清晰说出"这个 skill 只做 X"？说不出来就拆。
+
+合并时先列出所有子任务，每个子任务应该独立成一个 SKILL.md；只在它们之间**完全互不可分**且**只共用同一段文档**时才合并。
+
+参考 `../../meta/hermes-meta-preferences/SKILL.md` §4。
 
 ### 代码质量门禁（requesting-code-review）
 PR 前安全检查：
